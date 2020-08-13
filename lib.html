@@ -102,8 +102,21 @@ height: 300px;
       var currSlide = 0;
 
       var goToSlide = function(n){
-        $("#imgWrapper div").css("opacity", 0);
-        $($("#imgWrapper div")[n]).css("opacity", 1);
+      //  $("#imgWrapper div").css("opacity", 0);
+      //  $($("#imgWrapper div")[n]).css("opacity", 1);
+
+      var arr = $("#imgWrapper div");
+      for(var i = 0; i < arr.length; i++){
+        if(i < n){
+          $(arr[i]).css("margin-left", "-100%");
+        }
+        else if(i == n){
+          $(arr[i]).css("margin-left", "0%");
+        }
+        else{
+          $(arr[i]).css("margin-left", "100%");
+        }
+      }
       
 
         currSlide = n;
